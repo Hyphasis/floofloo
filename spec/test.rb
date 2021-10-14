@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'minitest/autorun'
-require 'minitest/rg'
 
 describe 'Test specs' do
   it 'test' do
