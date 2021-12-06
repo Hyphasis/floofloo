@@ -2,7 +2,6 @@
 
 require 'roda'
 require 'yaml'
-require 'sequel'
 require 'figaro'
 require 'delegate'
 
