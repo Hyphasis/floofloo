@@ -13,7 +13,7 @@ module Floofloo
     class NewsList < Roar::Decorator
       include Roar::JSON
 
-      collection :articles, extend: Representer::News
+      collection :articles, extend: Representer::News, class: OpenStruct
     end
   end
 end

@@ -3,64 +3,65 @@
 require 'http'
 
 module Floofloo
-  module News
-    # Library for News API
+  module Gateway
+    # Infrastructure to call CodePraise API
     class Api
-      NEWS_PATH = 'https://newsapi.org/v2/'
-      def initialize(news_key)
-        @news_key = news_key
+      def initialize(config)
+        @config = config
+        @request = Request.new(@config)
       end
 
-      # This method smells of :reek:LongParameterList
-      def news(language, keywords, from, to, sort_by)
-        Request.new(NEWS_PATH, @news_key)
-          .news(language, keywords, from, to, sort_by).parse
+      def alive?
+        @request.get_root.success?
       end
 
-      # Send out HTTP request to News API
+      def news_list(issue, event)
+        @request.news_list(issue, event)
+      end
+
+      # HTTP request transmitter
       class Request
-        def initialize(resource_root, key)
-          @resource_root = resource_root
-          @key = key
+        def initialize(config)
+          @api_host = config.API_HOST
+          @api_root = "#{config.API_HOST}/api/v1"
         end
 
-        # This method smells of :reek:LongParameterList
-        def news(language, keywords, from, to, sort_by)
-          news_url = "#{@resource_root}everything?"\
-                     "language=#{language}&q=#{keywords}&from=#{from}&to=#{to}&sortBy=#{sort_by}"\
-                     "&apiKey=#{@key}"
-          get(news_url)
+        def get_root # rubocop:disable Naming/AccessorMethodName
+          call_api('get')
         end
 
-        # This method smells of :reek:FeatureEnvy
-        def get(url)
-          http_response = HTTP.get(url)
+        def news_list(issue, event)
+          call_api('get', ['issue', issue, 'event', event, 'news'])
+        end
 
-          Response.new(http_response).tap do |response|
-            raise(response.error) unless response.successful?
-          end
+        private
+
+        def call_api(method, resources = [])
+          api_path = resources.empty? ? @api_host : @api_root
+          url = [api_path, resources].flatten.join('/')
+          HTTP.headers('Accept' => 'application/json').send(method, url)
+            .then { |http_response| Response.new(http_response) }
+        rescue StandardError
+          raise "Invalid URL request: #{url}"
         end
       end
 
-      # Decorate HTTP responses from News API with success/error reporting
+      # Decorates HTTP responses with success/error
       class Response < SimpleDelegator
-        # NotFound Error
         NotFound = Class.new(StandardError)
 
-        # Unauthorized Error
-        Unauthorized = Class.new(StandardError)
+        SUCCESS_CODES = (200..299).freeze
 
-        HTTP_ERROR = {
-          401 => Unauthorized,
-          404 => NotFound
-        }.freeze
-
-        def successful?
-          !HTTP_ERROR.keys.include?(code)
+        def success?
+          code.between?(SUCCESS_CODES.first, SUCCESS_CODES.last)
         end
 
-        def error
-          HTTP_ERROR[code]
+        def message
+          payload['message']
+        end
+
+        def payload
+          body.to_s
         end
       end
     end
