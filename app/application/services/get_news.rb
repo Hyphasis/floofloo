@@ -22,7 +22,7 @@ module Floofloo
       end
 
       def reify_list(news_list_json)
-        Representer::NewsList.new(OpenStruct.new)
+        Representer::NewsList.new(OpenStruct.new) # rubocop:disable Style/OpenStructUse
           .from_json(news_list_json)
           .then { |news| Success(news) }
       rescue StandardError

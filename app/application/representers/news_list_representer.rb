@@ -13,7 +13,7 @@ module Floofloo
     class NewsList < Roar::Decorator
       include Roar::JSON
 
-      collection :articles, extend: Representer::News, class: OpenStruct
+      collection :articles, extend: Representer::News, class: OpenStruct # rubocop:disable Style/OpenStructUse
     end
   end
 end

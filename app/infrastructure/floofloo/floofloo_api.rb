@@ -58,7 +58,7 @@ module Floofloo
       class Response < SimpleDelegator
         NotFound = Class.new(StandardError)
 
-        SUCCESS_CODES = (200..299).freeze
+        SUCCESS_CODES = (200..299).freeze # rubocop:disable Style/RedundantFreeze
 
         def success?
           code.between?(SUCCESS_CODES.first, SUCCESS_CODES.last)
