@@ -1,29 +1,5 @@
 link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"
 
-.container
-  form role="form" action="/event/0/news" method='GET' id='show-news'
-    .row.vertical-align.query-bar
-      .col-md-2.col-sem-3
-        .text-right News:
-      .col-md-8.col-sm-6
-        / Text Input
-        input {
-          type='text' name='keywords'
-          id='keywords' class="form-control"
-          placeholder="e.g. flu"
-        }
-      .col-md-2.col-sm-3
-        / Search Button
-        button {
-          type='submit' id='repo-form-submit' class='submit'
-          value='submit' class="btn btn-success"
-        } Search
-    .row
-      .col-md-12.blank-row
-        - if events_session.any?
-          - events_session.each do |event_session|
-            a href="/event/0/news?keywords=#{event_session}" class="badge rounded-pill bg-primary" #{event_session} 
-
 .container 
   .div class="btn-group"
     button {

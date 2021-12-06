@@ -30,11 +30,7 @@ jobs:
       run: bundle exec rake quality:reek
     
     - name: Run Tests
-      run: |
-           cp config/secrets_example.yml config/secrets.yml
-           mkdir app/infrastructure/database/local
-           bundle exec rake db:migrate RACK_ENV=test
-           bundle exec rake spec
+      run: bundle exec rake spec
 
   Deploy:
     needs: [ Quality-Check ]

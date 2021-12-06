@@ -4,29 +4,29 @@ require 'dry/transaction'
 
 module Floofloo
   module Services
-    # Transaction to get donation project from Global Giving API
+    # Transaction to get news from News API
     class GetDonation
       include Dry::Transaction
 
       step :find_donations
+      step :reify_list
 
       private
 
       def find_donations(input)
-        if input.success?
-          donations = donations_from_global_giving_api(input)
-          Success(donations: donations)
-        else
-          Failure(input.errors.messages.first.to_s)
-        end
+        Gateway::Api.new(Floofloo::App.config)
+          .donations_list(input[:issue], input[:event])
+          .then do |result|
+            result.success? ? Success(result.payload) : Failure(result.message)
+          end
       end
 
-      def donations_from_global_giving_api(input)
-        Donation::DonationMapper
-          .new(App.config.GLOBAL_GIVING_KEY)
-          .find(input[:keywords])
+      def reify_list(donation_list_json)
+        Representer::DonationsList.new(OpenStruct.new) # rubocop:disable Style/OpenStructUse
+          .from_json(donation_list_json)
+          .then { |donation| Success(donation) }
       rescue StandardError
-        raise 'Could not find donation project'
+        Failure('Could not parse response from API')
       end
     end
   end

@@ -9,24 +9,24 @@ module Floofloo
       include Dry::Transaction
 
       step :find_news
+      step :reify_list
 
       private
 
       def find_news(input)
-        if input.success?
-          news = news_from_news_api(input)
-          Success(news: news)
-        else
-          Failure(input.errors.messages.first.to_s)
-        end
+        Gateway::Api.new(Floofloo::App.config)
+          .news_list(input[:issue], input[:event])
+          .then do |result|
+            result.success? ? Success(result.payload) : Failure(result.message)
+          end
       end
 
-      def news_from_news_api(input)
-        News::NewsMapper
-          .new(App.config.NEWS_KEY)
-          .find(input[:language], input[:keywords], input[:from], input[:to], input[:sort_by])
+      def reify_list(news_list_json)
+        Representer::NewsList.new(OpenStruct.new) # rubocop:disable Style/OpenStructUse
+          .from_json(news_list_json)
+          .then { |news| Success(news) }
       rescue StandardError
-        raise 'Could not find the news'
+        Failure('Could not parse response from API')
       end
     end
   end
