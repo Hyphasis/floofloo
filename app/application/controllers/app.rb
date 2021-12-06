@@ -104,11 +104,10 @@ module Floofloo
               end
 
               routing.on 'donations' do
-                # GET /event/{event_name}/donations?keywords={keywords}
+                # GET /issue/{issue_name}/event/{event_name}/donations
                 routing.is do
-                  keywords = routing.params['keywords']
-
-                  result = Forms::GetDonation.new.call(keywords: keywords)
+                  result = Forms::GetDonation.new.call(issue: issue_name,
+                                                       event: event_name)
 
                   find_donation = Services::GetDonation.new.call(result)
 
@@ -117,10 +116,14 @@ module Floofloo
                     routing.redirect '/'
                   end
 
-                  view 'donations', locals: { donations: find_donation.value![:donations] }
+                  session[:event].insert(0, event_name).uniq
+
+                  donations_view_object = Views::Donation.new(find_donation.value!)
+
+                  view 'donations', locals: { donations: donations_view_object }
                 rescue StandardError => e
                   flash[:error] = 'Failed to get donations!'
-                  puts e.message
+                  puts e.full_message
 
                   routing.redirect '/'
                 end

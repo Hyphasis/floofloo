@@ -4,7 +4,7 @@ require 'http'
 
 module Floofloo
   module Gateway
-    # Infrastructure to call CodePraise API
+    # Infrastructure to call Floofloo API
     class Api
       def initialize(config)
         @config = config
@@ -17,6 +17,10 @@ module Floofloo
 
       def news_list(issue, event)
         @request.news_list(issue, event)
+      end
+
+      def donations_list(issue, event)
+        @request.donation_list(issue, event)
       end
 
       # HTTP request transmitter
@@ -32,6 +36,10 @@ module Floofloo
 
         def news_list(issue, event)
           call_api('get', ['issue', issue, 'event', event, 'news'])
+        end
+
+        def donation_list(issue, event)
+          call_api('get', ['issue', issue, 'event', event, 'donations'])
         end
 
         private

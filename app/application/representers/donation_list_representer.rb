@@ -13,7 +13,7 @@ module Floofloo
     class DonationsList < Roar::Decorator
       include Roar::JSON
 
-      collection :donations, extend: Representer::Donation
+      collection :donations, extend: Representer::Donation, class: OpenStruct
     end
   end
 end
