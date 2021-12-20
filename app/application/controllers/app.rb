@@ -25,6 +25,7 @@ module Floofloo
 
         view 'home', locals: { events_session: events_session }
       end
+
       routing.on 'issue' do # rubocop:disable Metrics/BlockLength
         routing.on String do |issue_name| # rubocop:disable Metrics/BlockLength
           routing.on 'event' do # rubocop:disable Metrics/BlockLength
@@ -84,6 +85,27 @@ module Floofloo
                   routing.redirect '/'
                 end
               end
+            end
+
+            # GET /issue/{issue_name}/event
+            routing.is do
+              result = Forms::GetEvent.new.call(issue: issue_name)
+
+              find_event = Services::GetEvent.new.call(result)
+
+              if find_event.failure?
+                flash[:error] = find_event.failure
+                routing.redirect '/'
+              end
+
+              event_view_object = Views::Event.new(find_event.value!)
+
+              view 'events', locals: { events: event_view_object }
+            rescue StandardError => e
+              flash[:error] = 'Failed to get events!'
+              puts e.full_message
+
+              routing.redirect '/'
             end
           end
         end

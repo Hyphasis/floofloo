@@ -1,0 +1,13 @@
+.container
+  .row
+    h2 Events
+
+    / Dash (-) means we do not have to display the result unless we explicitly ask for it
+    - events.events.each do |event| 
+      .container
+        .row
+          span.event.name Name: 
+          span.event.name
+            / Show the donation's title
+            = event.name
+        br
