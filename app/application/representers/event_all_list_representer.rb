@@ -13,7 +13,7 @@ module Floofloo
     class EventAllList < Roar::Decorator
       include Roar::JSON
 
-      collection :events, extend: Representer::EventList, class: OpenStruct
+      collection :events, extend: Representer::EventList, class: OpenStruct # rubocop:disable Style/OpenStructUse
     end
   end
 end
