@@ -13,16 +13,16 @@ module Floofloo
 
       private
 
-      def find_event(input)
+      def find_event
         Gateway::Api.new(Floofloo::App.config)
-          .event_list(input[:issue])
+          .event_list
           .then do |result|
             result.success? ? Success(result.payload) : Failure(result.message)
           end
       end
 
       def reify_list(event_list_json)
-        Representer::EventList.new(OpenStruct.new) # rubocop:disable Style/OpenStructUse
+        Representer::EventAllList.new(OpenStruct.new) # rubocop:disable Style/OpenStructUse
           .from_json(event_list_json)
           .then { |event| Success(event) }
       rescue StandardError

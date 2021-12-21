@@ -2,12 +2,69 @@
   .row
     h2 Events
 
+    h3 Issue1_events
     / Dash (-) means we do not have to display the result unless we explicitly ask for it
-    - events.events.each do |event| 
-      .container
-        .row
-          span.event.name Name: 
-          span.event.name
-            / Show the donation's title
-            = event.name
-        br
+    - if events.issue1_events
+      - events.issue1_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
+    
+    h3 Issue2_events
+    - if events.issue2_events
+      - events.issue2_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
+
+    h3 Issue3_events
+    - if events.issue3_events
+      - events.issue3_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
+
+    h3 Issue4_events
+    - if events.issue4_events
+      - events.issue4_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
+    
+    h3 Issue5_events
+    - if events.issue5_events
+      - events.issue5_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
+
+    h3 Issue6_events
+    - if events.issue6_events
+      - events.issue6_events.each do |event| 
+        .container
+          .row
+            span.event.name Name: 
+            span.event.name
+              / Show the donation's title
+              = event.name
+          br
