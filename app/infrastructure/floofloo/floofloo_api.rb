@@ -23,8 +23,8 @@ module Floofloo
         @request.donation_list(issue, event)
       end
 
-      def event_list(issue)
-        @request.event_list(issue)
+      def event_list
+        @request.event_list
       end
 
       # HTTP request transmitter
@@ -46,8 +46,8 @@ module Floofloo
           call_api('get', ['issue', issue, 'event', event, 'donations'])
         end
 
-        def event_list(issue)
-          call_api('get', ['issue', issue, 'event'])
+        def event_list
+          call_api('get', ['event'])
         end
 
         private
