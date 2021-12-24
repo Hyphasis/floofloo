@@ -6,7 +6,7 @@ require 'slim/include'
 
 module Floofloo
   # Web App
-  class App < Roda
+  class App < Roda # rubocop:disable Metrics/ClassLength
     plugin :halt
     plugin :flash
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
@@ -117,6 +117,28 @@ module Floofloo
           puts e.full_message
 
           routing.redirect '/'
+        end
+      end
+
+      routing.on 'news' do
+        routing.on String do |news_id|
+          routing.get do
+            find_recommendation = Services::GetRecommendation.new.call(news_id: news_id)
+
+            if find_recommendation.failure?
+              flash[:error] = find_recommendation.failure
+              routing.redirect '/'
+            end
+
+            recommendation_view_object = Views::Recommenation.new(find_recommendation.value!)
+
+            view 'recommendation', locals: { recommendation: recommendation_view_object }
+          rescue StandardError => e
+            flash[:error] = 'Failed to get events!'
+            puts e.full_message
+
+            routing.redirect '/'
+          end
         end
       end
     end

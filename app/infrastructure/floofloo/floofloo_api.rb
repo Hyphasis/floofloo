@@ -27,6 +27,10 @@ module Floofloo
         @request.event_list
       end
 
+      def recommendation_list(news_id)
+        @request.recommendation_list(news_id)
+      end
+
       # HTTP request transmitter
       class Request
         def initialize(config)
@@ -48,6 +52,10 @@ module Floofloo
 
         def event_list
           call_api('get', ['event'])
+        end
+
+        def recommendation_list(news_id)
+          call_api('get', ['news', news_id])
         end
 
         private
