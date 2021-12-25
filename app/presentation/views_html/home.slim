@@ -1,17 +1,178 @@
+/ Showcase
 <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
   <div class="container">
     <div class="d-sm-flex align-items-center justify-content-between">
       <div>
         <h1>Help Giving<span class="text-warning"> A Shed of Hope
         </span></h1>
-        <p class="lead my-4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate laborum molestias commodi perspiciatis! Doloribus mollitia minus iste illum sed suscipit nisi tempore provident. Quibusdam corporis officia fugiat dolorem maxime id?
+        <p class="lead my-4"> FlooFloo dedicates to the cause of helping those in need by creating awareness on current issues and providing a way to donate to different projects around the world. We want to help YOU find your way in understanding the problems of the world and contribute your shed of hope.
         </p>
       </div>
       <div>
-      <img class="img-fluid w-50 d-none d-sm-block" src="/img/rose.jpg" alt=""/>
+      <img class="img-fluid w-50 d-none d-sm-block" src="https://i.imgur.com/umJJlQO.png" alt=""/>
     </div>
-  </div> 
+  </div>
+</section>
+
+/ Option Boxes
+<section class="p-5">
+  <div class="container">
+    <div class="row text-center mb-3 g-4">
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h3 class="card-title mb-3"> Disease
+            </h3>
+            <p class="card-text"> Explore news and projects related to risks of disease.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.disease
+                - events.disease.each do |event| 
+                  <li><a class="dropdown-item" href="/issue/disease/event/#{event.name}/news">#{event.name}</a></li>
+              - else
+                <li><a class="dropdown-item" href="">N/A</a></li>
+              <li><hr class="dropdown-divider"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-person-square"></i>
+            </div>
+            <h3 class="card-title mb-3"> Climate
+            </h3>
+            <p class="card-text"> Climate Action is necessary to avoid climate-related hazards.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.rights
+                - events.rights.each do |event|
+                  <li><a class="dropdown-item" href="/issue/rights/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-people"></i>
+            </div>
+            <h3 class="card-title mb-3"> Human Rights
+            </h3>
+            <p class="card-text"> Prevent the violation of H.R. and contribute to the development of a fair society.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row text-center g-4">
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h3 class="card-title mb-3"> Pandemic
+            </h3>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, corrupti?
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-person-square"></i>
+            </div>
+            <h3 class="card-title mb-3"> Disaster
+            </h3>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta, ab.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-people"></i>
+            </div>
+            <h3 class="card-title mb-3"> Emergency
+            </h3>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, aut?
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 

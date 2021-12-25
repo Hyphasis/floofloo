@@ -16,27 +16,27 @@ module Views
       @event.events
     end
 
-    def issue1_events
+    def disease
       @event.events[0].themes if @event.events.size.positive?
     end
 
-    def issue2_events
+    def rights
       @event.events[1].themes if @event.events.size > 1
     end
 
-    def issue3_events
+    def disaster
       @event.events[2].themes if @event.events.size > 2
     end
 
-    def issue4_events
+    def hunger
       @event.events[3].themes if @event.events.size > 3
     end
 
-    def issue5_events
+    def water
       @event.events[4].themes if @event.events.size > 4
     end
 
-    def issue6_events
+    def climate
       @event.events[5].themes if @event.events.size > 5
     end
   end
