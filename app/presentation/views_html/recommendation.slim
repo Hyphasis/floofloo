@@ -1,0 +1,70 @@
+.container
+  .row
+    h2 class="text-center p-3 mb-2 bg-light text-dark" NEWS
+
+    / Dash (-) means we do not have to display the result unless we explicitly ask for it
+
+    .container-fluid
+      .row
+        .col-lg-8.col-md-2.col-sm-6
+          h3 class="fs-1"
+            strong
+              span.recommendation.articles.title
+              span.recommendation.articles.title
+                / Show the article's title
+              = recommendation.articles.title
+      .row
+        h5  class="fw-normal"
+          span.recommendation.articles.author
+          span.recommendation.articles.author
+            = recommendation.articles.author
+      .row
+        img src="#{recommendation.articles.url_to_image}" class="img-fluid rounded" alt="..." 
+      .row
+        p 
+          strong
+            a href="#{recommendation.articles.url}" class="text-dark fst-italic text-decoration-underline" Source
+      .row
+        p {class="lead fw-normal"}
+          strong
+            span.recommendation.articles.description Description: 
+          span.recommendation.articles.description
+            = recommendation.articles.description
+            
+      hr class="my-4"
+
+      br
+
+.container
+  .row
+    h2 Donations
+
+    / Dash (-) means we do not have to display the result unless we explicitly ask for it
+    - recommendation.donations.each do |donation| 
+      .container
+        .row
+          span.donation.title Title: 
+          span.donation.title
+            / Show the donation's title
+            = donation.title
+        .row  
+          span.donation.summary Summary: 
+          span.donation.summary
+            = donation.summary
+        .row  
+          span.donation.country Country: 
+          span.donation.country
+            = donation.country
+        .row
+          span.donation.city City: 
+          span.donation.city
+            = donation.city
+        .row
+          span.donation.image_url Image Url: 
+          span.donation.image_url
+            = donation.image_url
+        .row
+          span.donation.project_url Project Url: 
+          span.donation.project_url
+            = donation.project_url
+        br

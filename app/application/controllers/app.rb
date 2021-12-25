@@ -6,7 +6,7 @@ require 'slim/include'
 
 module Floofloo
   # Web App
-  class App < Roda
+  class App < Roda # rubocop:disable Metrics/ClassLength
     plugin :halt
     plugin :flash
     plugin :all_verbs # recognizes HTTP verbs beyond GET/POST (e.g., DELETE)
@@ -23,8 +23,18 @@ module Floofloo
         session[:event] ||= []
         events_session = session[:event]
 
-        view 'home', locals: { events_session: events_session }
+        find_event = Services::GetEvent.new.call
+
+        if find_event.failure?
+          flash[:error] = find_event.failure
+          routing.redirect '/'
+        end
+
+        event_view_object = Views::Event.new(find_event.value!)
+
+        view 'home', locals: { events_session: events_session, events: event_view_object }
       end
+
       routing.on 'issue' do # rubocop:disable Metrics/BlockLength
         routing.on String do |issue_name| # rubocop:disable Metrics/BlockLength
           routing.on 'event' do # rubocop:disable Metrics/BlockLength
@@ -85,6 +95,49 @@ module Floofloo
                 end
               end
             end
+          end
+        end
+      end
+
+      routing.on 'event' do
+        # GET /event
+        routing.is do
+          find_event = Services::GetEvent.new.call
+
+          if find_event.failure?
+            flash[:error] = find_event.failure
+            routing.redirect '/'
+          end
+
+          event_view_object = Views::Event.new(find_event.value!)
+
+          view 'events', locals: { events: event_view_object }
+        rescue StandardError => e
+          flash[:error] = 'Failed to get events!'
+          puts e.full_message
+
+          routing.redirect '/'
+        end
+      end
+
+      routing.on 'news' do
+        routing.on String do |news_id|
+          routing.get do
+            find_recommendation = Services::GetRecommendation.new.call(news_id: news_id)
+
+            if find_recommendation.failure?
+              flash[:error] = find_recommendation.failure
+              routing.redirect '/'
+            end
+
+            recommendation_view_object = Views::Recommenation.new(find_recommendation.value!)
+
+            view 'recommendation', locals: { recommendation: recommendation_view_object }
+          rescue StandardError => e
+            flash[:error] = 'Failed to get events!'
+            puts e.full_message
+
+            routing.redirect '/'
           end
         end
       end
