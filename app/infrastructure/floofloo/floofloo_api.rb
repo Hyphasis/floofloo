@@ -23,6 +23,14 @@ module Floofloo
         @request.donation_list(issue, event)
       end
 
+      def event_list
+        @request.event_list
+      end
+
+      def recommendation_list(news_id)
+        @request.recommendation_list(news_id)
+      end
+
       # HTTP request transmitter
       class Request
         def initialize(config)
@@ -40,6 +48,14 @@ module Floofloo
 
         def donation_list(issue, event)
           call_api('get', ['issue', issue, 'event', event, 'donations'])
+        end
+
+        def event_list
+          call_api('get', ['event'])
+        end
+
+        def recommendation_list(news_id)
+          call_api('get', ['news', news_id])
         end
 
         private

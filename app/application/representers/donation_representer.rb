@@ -17,6 +17,7 @@ module Floofloo
       property :country
       property :city
       property :image_url
+      property :project_url
     end
   end
 end
