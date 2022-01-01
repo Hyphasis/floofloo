@@ -82,11 +82,12 @@
               <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+              - if events.disaster
+                - events.disaster.each do |event|
+                  <li><a class="dropdown-item" href="/issue/disaster/event/#{event.name}/news">#{event.name}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
               </ul>
             </div>
           </div>
@@ -109,11 +110,12 @@
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+              - if events.hunger
+                - events.hunger.each do |event|
+                  <li><a class="dropdown-item" href="/issue/hunger/event/#{event.name}/news">#{event.name}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
               </ul>
             </div>
           </div>
@@ -133,11 +135,12 @@
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+              - if events.water
+                - events.water.each do |event|
+                  <li><a class="dropdown-item" href="/issue/water/event/#{event.name}/news">#{event.name}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
               </ul>
             </div>
           </div>
@@ -158,11 +161,12 @@
               <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Menu
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
+              - if events.climate
+                - events.climate.each do |event|
+                  <li><a class="dropdown-item" href="/issue/climate/event/#{event.name}/news">#{event.name}</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
               </ul>
             </div>
           </div>
@@ -293,14 +297,14 @@
       <div class="col-md-6 col-lg-4">
         <div class="card bg-light">
           <div class="card-body text-center">
-            <img src="https://randomuser.me/api/portraits/men/11.jpg" class="rounded-circle mb-3" alt="">
+            <img src="https://i.imgur.com/1rcpKwMt.jpg" class="rounded-circle mb-3" alt="">
             <h3 class="card-title mb-3">Tony Lin</h3>
-            <p class="card-text"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea accusamus, iure dignissimos eaque commodi similique!
+            <p class="card-text"> "Programming is like a box of chocolates. You never know which one is not a bug."
             </p>
-            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
-            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+            <a href="https://twitter.com/tienyulin"><i class="bi bi-twitter text-dark mx-1"></i></a>
+            <a href="https://www.facebook.com/t.tienyulin/"><i class="bi bi-facebook text-dark mx-1"></i></a>
+            <a href="https://www.linkedin.com/in/tony-lin-19970608/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+            <a href="https://www.instagram.com/tonylin0608/"><i class="bi bi-instagram text-dark mx-1"></i></a>
           </div>
         </div>
       </div>
