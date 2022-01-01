@@ -12,6 +12,7 @@ module Floofloo
     class News < Roar::Decorator
       include Roar::JSON
 
+      property :id
       property :author
       property :title
       property :description
