@@ -1,17 +1,18 @@
 / Embedded News
 
-<h1 class="display-5 text-light text-center pt-3 mb-0 bg-secondary">News</h1>
+<h1 class="display-4 text-light text-center pt-4 mb-1 bg-dark">NEWS</h1>
 
 <section class="bg-light p-lg-0 pt-lg-3 pb-lg-3"> 
   <div class="container">
     <div class="row">
       <span class="border-start border-end border-4 border-light">
-        / <div class="ratio ratio-16x9">
-        / News here
+        <div class="ratio ratio-16x9">
+        / News here 
+        / random link https://www.reuters.com/technology/eu-court-upholds-eu-antitrust-ruling-against-google-2021-11-10/
           
-        <iframe src="https://www.reuters.com/technology/eu-court-upholds-eu-antitrust-ruling-against-google-2021-11-10/" title="YouTube video" allowfullscreen></iframe>
-          / <embed type="text/html" src="#{recommendation.articles.url}" width="300" height="200">
-        / </div>
+        <iframe src="#{recommendation.articles.url}" title="News" allowfullscreen></iframe>
+        /<embed type="text/html" src="#{recommendation.articles.url}" width="300" height="200">
+        </div>
       </span>
     </div>
   </div> 
@@ -19,99 +20,24 @@
 
 / Donations
 
-<h1 class="display-5 text-light text-center bg-primary mb-0">Donations</h1>
+<h1 class="display-5 text-warning text-center pt-4 bg-dark mb-0">DONATIONS</h1>
 
-<section class="bg-dark text-light p-5 p-lg-0 pt-lg-4 pb-lg-3 text-center text-sm-start"> 
+<section class="bg-dark text-light p-5 p-lg-0 pt-lg-4 pb-lg-4 text-center text-sm-start"> 
   <div class="container">
     - recommendation.donations.each do |donation| 
-      <div class="d-sm-flex align-items-center justify-content-between"> 
+      <div class="p-2 d-sm-flex align-items-center justify-content-between"> 
         <div>
           <h3> 
             </span></h3>
-            <p class="lead my-4">
-              Muwakhat #{donation.summary}
+            <p class="lead my-4"> #{donation.summary}
             </p>
             <a href="#{donation.project_url}" class="btn btn-lg btn-success m-1">
-              <i class="bi bi-chevron-right"></i>
-                Donate
+              <i class="bi bi-chevron-right"></i> Donate
             </a>
         </div>
         <img class="rounded-3 border border-3 border-warning img-fluid w-50 d-none d-sm-block" src="#{donation.image_url}" alt=""/> 
       </div>
   </div> 
-  <hr class="my-1 bg-dark">
+  <hr class="my-1 bg-light">
 </section> 
 
-
-
-
-/ .container
-/   .row
-/     h2 class="text-center p-3 mb-2 bg-light text-dark" NEWS
-
-/     / Dash (-) means we do not have to display the result unless we explicitly ask for it
-
-/     .container-fluid
-/       .row
-/         .col-lg-8.col-md-2.col-sm-6
-/           h3 class="fs-1"
-/             strong
-/               span.recommendation.articles.title
-/               span.recommendation.articles.title
-/                 / Show the article's title
-/               = recommendation.articles.title
-/       .row
-/         h5  class="fw-normal"
-/           span.recommendation.articles.author
-/           span.recommendation.articles.author
-/             = recommendation.articles.author
-/       .row
-/         img src="#{recommendation.articles.url_to_image}" class="img-fluid rounded" alt="..." 
-/       .row
-/         p 
-/           strong
-/             a href="#{recommendation.articles.url}" class="text-dark fst-italic text-decoration-underline" Source
-/       .row
-/         p {class="lead fw-normal"}
-/           strong
-/             span.recommendation.articles.description Description: 
-/           span.recommendation.articles.description
-/             = recommendation.articles.description
-            
-/       hr class="my-4"
-
-/       br
-
-/ .container
-/   .row
-/     h2 Donations
-
-/     / Dash (-) means we do not have to display the result unless we explicitly ask for it
-/     - recommendation.donations.each do |donation| 
-/       .container
-/         .row
-/           span.donation.title Title: 
-/           span.donation.title
-/             / Show the donation's title
-/             = donation.title
-/         .row  
-/           span.donation.summary Summary: 
-/           span.donation.summary
-/             = donation.summary
-/         .row  
-/           span.donation.country Country: 
-/           span.donation.country
-/             = donation.country
-/         .row
-/           span.donation.city City: 
-/           span.donation.city
-/             = donation.city
-/         .row
-/           span.donation.image_url Image Url: 
-/           span.donation.image_url
-/             = donation.image_url
-/         .row
-/           span.donation.project_url Project Url: 
-/           span.donation.project_url
-/             = donation.project_url
-/         br
