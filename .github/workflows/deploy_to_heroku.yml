@@ -2,7 +2,7 @@ name: Deploy-To-Heroku
 
 on:
   push:
-    branches: [ develop, front_revamp ]
+    branches: [ develop ]
 
 jobs:
   Quality-Check:
