@@ -2,10 +2,10 @@
   .row
     h2 Events
 
-    h3 Issue1_events
+    h3 disease
     / Dash (-) means we do not have to display the result unless we explicitly ask for it
-    - if events.issue1_events
-      - events.issue1_events.each do |event| 
+    - if events.disease
+      - events.disease.each do |event| 
         .container
           .row
             span.event.name Name: 
@@ -14,9 +14,9 @@
               = event.name
           br
     
-    h3 Issue2_events
-    - if events.issue2_events
-      - events.issue2_events.each do |event| 
+    h3 rights_events
+    - if events.rights
+      - events.rights.each do |event| 
         .container
           .row
             span.event.name Name: 
@@ -25,9 +25,9 @@
               = event.name
           br
 
-    h3 Issue3_events
-    - if events.issue3_events
-      - events.issue3_events.each do |event| 
+    h3 disaster_events
+    - if events.disaster
+      - events.disaster.each do |event| 
         .container
           .row
             span.event.name Name: 
@@ -36,9 +36,9 @@
               = event.name
           br
 
-    h3 Issue4_events
-    - if events.issue4_events
-      - events.issue4_events.each do |event| 
+    h3 hunger
+    - if events.hunger
+      - events.hunger.each do |event| 
         .container
           .row
             span.event.name Name: 
@@ -47,9 +47,9 @@
               = event.name
           br
     
-    h3 Issue5_events
-    - if events.issue5_events
-      - events.issue5_events.each do |event| 
+    h3 water
+    - if events.water
+      - events.water.each do |event| 
         .container
           .row
             span.event.name Name: 
@@ -58,9 +58,9 @@
               = event.name
           br
 
-    h3 Issue6_events
-    - if events.issue6_events
-      - events.issue6_events.each do |event| 
+    h3 climate
+    - if events.climate
+      - events.climate.each do |event| 
         .container
           .row
             span.event.name Name: 

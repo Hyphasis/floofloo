@@ -1,68 +1,20 @@
-h1 {
-  font-weight: bold;
+body::before {
+  display: block;
+  content: '';
+  height: 60px;
 }
 
-h2 {
-  font-style: bold;
-  color: #000;
+@media (min-width: 768px) {
+  .news-input {
+    width: 50%;
+  }
 }
 
-h3 {
-  font-style: bold;
-  color: #000;
+.navbar-brand
+{
+  font-size: 32px;
 }
 
-h5 {
-  color: #2E2D2D;
-}
-
-.top-buffer { margin-top:20px; }
-
-.text-underline-hover {
-  text-decoration: none;
-}
-
-.top-buffer { margin-top:20px; }
-
-.posting.body {
-  font-size: 1.2em;
-}
-
-.article.title {
-  font-weight: bold;
-}
-
-.vcenter {
-  display: inline-block;
-  vertical-align: middle;
-  float: none;
-}
-
-.vertical-align {
-  display: flex;
-  flex-direction: row;
-}
-
-.vertical-align > [class^="col-"],
-.vertical-align > [class*=" col-"] {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Optional, to align inner items horizontally inside the column */
-}
-
-.top-buffer { margin-top:20px; }
-
-.blank-row {
-  height: 30px;
-}
-
-.query-bar {
-  background-color: #e9e9e9;
-  padding: 5px 5px 5px 5px;
-}
-
-footer {
-  padding: 0.5in;
-  font-size:11px;
-  color:rgb(100, 100, 100);
+body {
+  font-family: 'Kumbh Sans', sans-serif;
 }

@@ -1,75 +1,341 @@
-link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"
+/ Showcase
+<section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+  <div class="container">
+    <div class="d-sm-flex align-items-center justify-content-between">
+      <div>
+        <h1>Help Giving<span class="text-warning"> A Shed of Hope
+        </span></h1>
+          <p class="lead my-4"> FlooFloo dedicates to the cause of helping those in need by creating awareness on current issues and providing a way to donate to different projects around the world. We want to help YOU find your way in understanding the problems of the world and contribute your shed of hope.
+          </p>
+      </div>
+      <img class="img-fluid w-50 d-none d-sm-block" src="https://i.imgur.com/sueBzE5.png" alt=""/>
+    </div>
+  </div>
+</section>
 
-.container 
-  .div class="btn-group"
-    button {
-      class="btn btn-secondary dropdown-toggle" 
-      type="button" id="dropdownMenuButton" 
-      data-bs-toggle="dropdown" aria-expanded="false"
-      } Disease
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="#">Flu</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Corona Virus</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Polio</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Chikungunya</a></li>
-    </ul>
+/ Option Boxes
+<section class="p-5">
+  <div class="container">
+    <div class="row text-center mb-3 g-4">
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-patch-plus-fill"></i>
+            </div>
+            <h3 class="card-title mb-3"> Disease
+            </h3>
+            <p class="card-text"> Explore news and projects related to risks of disease.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.disease
+                - events.disease.each do |event|
+                  <li><a class="dropdown-item" href="/issue/disease/event/#{event.name}/news">#{event.name}</a></li>
+              - else
+                <li><a class="dropdown-item" href="">N/A</a></li>
+              <li><hr class="dropdown-divider"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-person-check-fill"></i>
+            </div>
+            <h3 class="card-title mb-3"> Human Rights
+            </h3>
+            <p class="card-text"> Prevent the violation of H.R. and contribute to the development of a fair society.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.rights
+                - events.rights.each do |event|
+                  <li><a class="dropdown-item" href="/issue/rights/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-light text-dark">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-geo-fill"></i>
+            </div>
+            <h3 class="card-title mb-3"> Disaster
+            </h3>
+            <p class="card-text"> Unforseen events affect insantly in disruptive ways and we need to act quickly.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.disaster
+                - events.disaster.each do |event|
+                  <li><a class="dropdown-item" href="/issue/disaster/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    .div class="btn-group"
-    button {
-      class="btn btn-secondary dropdown-toggle" 
-      type="button" id="dropdownMenuButton" 
-      data-bs-toggle="dropdown" aria-expanded="false"
-      } Disaster
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="#">Hurricane/Typhoon</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Earthquakes</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Volcano Eruption</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Tsunami</a></li>
-    </ul>
+    <div class="row text-center g-4">
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-suit-heart"></i>
+            </div>
+            <h3 class="card-title mb-3"> Hunger
+            </h3>
+            <p class="card-text"> Hunger is always in an urgent need in many parts of the world, let's contribute.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.hunger
+                - events.hunger.each do |event|
+                  <li><a class="dropdown-item" href="/issue/hunger/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-droplet-half"></i>
+            </div>
+            <h3 class="card-title mb-3"> Water
+            </h3>
+            <p class="card-text"> Sanitation is a vital part of fixing wide spread consequences, this a vital step.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.water
+                - events.water.each do |event|
+                  <li><a class="dropdown-item" href="/issue/water/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    .div class="btn-group"
-    button {
-      class="btn btn-secondary dropdown-toggle" 
-      type="button" id="dropdownMenuButton" 
-      data-bs-toggle="dropdown" aria-expanded="false"
-      } Human Rights
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="#">Poverty</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Domestic Violence</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Victims</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Refugees</a></li>
-    </ul>
-    
-        .div class="btn-group"
-    button {
-      class="btn btn-secondary dropdown-toggle" 
-      type="button" id="dropdownMenuButton" 
-      data-bs-toggle="dropdown" aria-expanded="false"
-      } Climate
-    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-      <li><a class="dropdown-item active" href="#">Air Pollution</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Oil Spill</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Water Needs</a></li>
-      <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="#">Etc.</a></li>
-    </ul>
+      <div class="col-md">
+        <div class="card bg-success text-light">
+          <div class="card-body text-center">
+            <div class="h1 mb-3">
+              <i class="bi bi-sun"></i>
+            </div>
+            <h3 class="card-title mb-3"> Climate
+            </h3>
+            <p class="card-text"> Climate Action is necessary to avoid climate-related hazards.
+            </p>
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false"> Options
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              - if events.climate
+                - events.climate.each do |event|
+                  <li><a class="dropdown-item" href="/issue/climate/event/#{event.name}/news">#{event.name}</a></li>
+                <li><hr class="dropdown-divider"></li>
+              - else
+                  <li><a class="dropdown-item" href="">N/A</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  
+/ About Sections
 
+<section id="about" class="p-4 pt-0">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md">
+        <img src="https://i.imgur.com/3trWdRW.png" class="img-fluid" alt=""/>
+      </div>
+      <div class="col-md p-5">
+        <h2>About FlooFloo</h2>
+        <p class="lead"> FlooFloo was created in order to bring a little bit of humanity to the world.
+        </p>
+        <p> We are a group of students from National Tsing Hua University and we are working on a project for our Service Oriented Architecture course. We created this platform to help people learn more about current issues around the world and how to contribute a grain of salt.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
- 
+<section id="goal" class="p-5 bg-success text-light">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
 
-          
+      <div class="col-md p-5">
+        <h2>Our Goal</h2>
+        <p class="lead"> Create consciousness of the world problems around us.
+        </p>
+        <p> FlooFloo is dedicated to serve an ethical purpose and we hope to provide worldwide issues through current and updated news that correlate with ongoing donation projects and help people to learn more and hopefully make the decision of making a contribution through a donation.
+        </p>
+      </div>
+      <div class="col-md">
+        <img src="https://i.imgur.com/umJJlQO.png" class="img-fluid" alt=""/>
+      </div>
+    </div>
+  </div>
+</section>
 
-          
+/ Q&A Accordion
+
+<section id="questions" class="p-5">
+  <div class="container">
+
+    <h2 class="text-center mb-4"> <span class="text-primary">FAQ</span> - Frequently Asked Questions</h2>
+
+    <div class="accordion accordion-flush" id="questions">
+
+      / Item 1
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-one"> What is FlooFloo's benefit?
+          </button>
+        </h2>
+        <div id="question-one" class="accordion-collapse collapse" data-bs-parent="#questions">
+          <div class="accordion-body"> FlooFloo takes no benefit nor profit from this project, it's nature is of demonstration purpose only.
+          </div>
+        </div>
+      </div>
+
+      / Item 2
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-two"> What other webpages can I use to donate?
+          </button>
+        </h2>
+        <div id="question-two" class="accordion-collapse collapse" data-bs-parent="#questions">
+          <div class="accordion-body"> FlooFloo currently utilizes GlobalGiving.org's API and nothing else. If you would like to find other donation platforms, please search for them aside of FlooFloo.
+          </div>
+        </div>
+      </div>
+
+      / Item 3
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-three"> What countries does FlooFloo cover?
+          </button>
+        </h2>
+        <div id="question-three" class="accordion-collapse collapse" data-bs-parent="#questions">
+          <div class="accordion-body"> FlooFloo is able to find worldwide news and projects based on the APIs that we are currently utilizing.
+          </div>
+        </div>
+      </div>
+
+      / Item 4
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-four"> Are there other languages?
+          </button>
+        </h2>
+        <div id="question-four" class="accordion-collapse collapse" data-bs-parent="#questions">
+          <div class="accordion-body"> At the moment FlooFloo can only cover English.
+          </div>
+        </div>
+      </div>
+
+      / Item 5
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#question-five"> How long to projects last?
+          </button>
+        </h2>
+        <div id="question-five" class="accordion-collapse collapse" data-bs-parent="#questions">
+          <div class="accordion-body"> This depends on the project's goal reach and the problem they are trying to solve.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+/ Our Team
+
+<section id="team" class="p-5 bg-light">
+  <div class="container">
+    <h2 class="text-center text-dark">Our Team</h2>
+    <p class="lead text-center text-dark mb-5"> Our team is a group of students from National Tsing Hua University.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="https://i.imgur.com/1rcpKwMt.jpg" class="rounded-circle mb-3" alt="">
+            <h3 class="card-title mb-3">Tony Lin</h3>
+            <p class="card-text"> "Programming is like a box of chocolates. You never know which one is not a bug."
+            </p>
+            <a href="https://twitter.com/tienyulin"><i class="bi bi-twitter text-dark mx-1"></i></a>
+            <a href="https://www.facebook.com/t.tienyulin/"><i class="bi bi-facebook text-dark mx-1"></i></a>
+            <a href="https://www.linkedin.com/in/tony-lin-19970608/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+            <a href="https://www.instagram.com/tonylin0608/"><i class="bi bi-instagram text-dark mx-1"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="https://imgur.com/g8npido.jpg" class="rounded-circle mb-3" alt="">
+            <h3 class="card-title mb-3">Steven Wang</h3>
+            <p class="card-text"> "It works on my machine !"
+            </p>
+            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+            <a href="https://www.facebook.com/steventime0430/"><i class="bi bi-facebook text-dark mx-1"></i></a>
+            <a href="https://www.linkedin.com/in/yen-hsiang-steven-wang-82014b13a"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="https://i.imgur.com/3jnqqpkb.png" class="rounded-circle mb-3" alt="">
+            <h3 class="card-title mb-3">艾德加</h3>
+            <p class="card-text"> "In academia everyday is a Saturday... However, you work on Saturdays."
+            </p>
+            <a href="https://twitter.com/EdDuronr"><i class="bi bi-twitter text-dark mx-1"></i></a>
+            <a href="https://www.facebook.com/DuronRa/"><i class="bi bi-facebook text-dark mx-1"></i></a>
+            <a href="https://www.linkedin.com/in/edgarduronr/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+            <a href="https://www.instagram.com/edgar.duronr/"><i class="bi bi-instagram text-dark mx-1"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
